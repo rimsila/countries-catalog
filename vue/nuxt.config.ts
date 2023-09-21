@@ -17,7 +17,7 @@ export default defineNuxtConfig({
       ],
       link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
     },
-    baseURL: isProd ? "/github-pages/" : "/",
+    baseURL: isProd ? "/countries-catalog/" : "/",
     buildAssetsDir: "assets",
   },
   modules: ["@element-plus/nuxt", "@nuxtjs/tailwindcss"],
