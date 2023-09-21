@@ -7,16 +7,15 @@ import { debounce } from "lodash";
 const { data: allCountries, pending } = await useRequest<CountriesCatalog>(
   "/all"
 );
-const searchValue = ref("");
 
 const state = reactive({
   page: 1,
   pageSize: 25,
-  total: 0,
+  searchText: "",
 });
 
-const debouncedSearch = debounce((val) => {
-  searchValue.value = val;
+const debouncedSearch = debounce((val: string) => {
+  state.searchText = val;
 }, 500);
 
 const handleDetailCountries = (record: CountriesCatalog[number]) => {
@@ -47,18 +46,16 @@ const filteredData = computed(() => {
   return allCountries.value.filter((country) =>
     country.name.official
       .toLowerCase()
-      .includes(searchValue.value.toLowerCase())
+      .includes(state.searchText.toLowerCase())
   );
 });
 
 const paginateData = computed(() => {
-  state.total = filteredData.value.length;
   return filteredData.value.slice(
     state.pageSize * state.page - state.pageSize,
     state.pageSize * state.page
   );
 });
-
 </script>
 
 <template>
@@ -69,7 +66,7 @@ const paginateData = computed(() => {
           <el-text type="primary"> Countries Catalog</el-text>
           <el-input
             class="!w-56"
-            v-model="searchValue"
+            v-model="state.searchText"
             placeholder="Search Country"
             @input="debouncedSearch"
             clearable
@@ -146,7 +143,7 @@ const paginateData = computed(() => {
         @current-change="(val: number) => state.page = val"
         :page-size="state.pageSize"
         @size-change="(val: number) => state.pageSize = val"
-        :total="state.total"
+        :total="filteredData.length"
         :page-sizes="[5, 10, 25, 30, 40]"
       >
       </el-pagination>
