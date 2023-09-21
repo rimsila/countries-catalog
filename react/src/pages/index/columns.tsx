@@ -76,7 +76,7 @@ export const columns: ColumnType<CountriesCatalogItem>[] = [
     title: "Country Calling Codes",
     dataIndex: "idd",
     render: (_, { idd }) => {
-      const { root, suffixes = [] } = idd || {};
+      const { root = "", suffixes = [] } = idd || {};
       return root + suffixes.join?.(", ");
     },
   },
