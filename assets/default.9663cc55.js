@@ -1,0 +1,1 @@
+import{_ as s,k as t,a0 as a,j as c}from"./entry.c18be745.js";const n={},o={className:"min-h-screen p-6"};function r(e,_){return c(),t("div",o,[a(e.$slots,"default")])}const d=s(n,[["render",r]]);export{d as default};
