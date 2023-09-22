@@ -21,6 +21,6 @@
 
   - DEMO Vue: <https://rimsila.github.io/countries-catalog>
 
-- App React: React/Umi4 with tailwind CSS and Element Plus
+- App React: React/Umi4 with tailwind CSS and Antd Design
 
   - DEMO React: <https://sila-countries-catalog.netlify.app/>
