@@ -14,4 +14,13 @@
     - Sorting by Country Name (Asc,Desc)
     - Pagination (25 rows per page)
     - After clicked on country name, pop up a modal and show all others informations.
-3. Please deploy your service to GitHub Pages and keep all related commit history.
+
+## Tech Stack
+
+- App Vue: Vue3/Nuxt3 with tailwind CSS and Element Plus
+
+  - DEMO Vue: <https://rimsila.github.io/countries-catalog>
+
+- App React: React/Umi4 with tailwind CSS and Element Plus
+
+  - DEMO React: <https://sila-countries-catalog.netlify.app/>
